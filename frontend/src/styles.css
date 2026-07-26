@@ -474,3 +474,70 @@ input:focus, select:focus, textarea:focus {
   .summary-cards { grid-template-columns: repeat(2, 1fr); }
   .form-grid { grid-template-columns: 1fr; }
 }
+/* ---------------------------------------------------------------- */
+/* Celular: la barra lateral pasa a ser una barra superior             */
+/* ---------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .layout { flex-direction: column; min-height: auto; }
+
+  .sidebar {
+    width: 100%;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar::before {
+    top: auto; left: 0; right: 0; bottom: -1px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--red-dark) 60%, transparent 95%);
+  }
+
+  .brand { margin-bottom: 0; padding: 0; border-bottom: none; }
+  .brand-sub { display: none; }
+
+  .sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  .nav-item { padding: 8px 12px; font-size: 12px; }
+
+  .content { padding: 20px 16px 40px; }
+
+  .content-header h1 { font-size: 19px; }
+  .content-header { margin-bottom: 18px; padding-bottom: 14px; }
+
+  .card { padding: 16px; }
+
+  .card-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .card-header .btn { width: 100%; }
+
+  .tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .tab { padding: 9px 14px; font-size: 12.5px; white-space: nowrap; }
+
+  .summary-cards { grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+  .summary-value { font-size: 18px; }
+
+  .filters { flex-direction: column; align-items: stretch; gap: 12px; }
+  .filters label, .filters label.wide { min-width: 0; width: 100%; }
+
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .form-actions { flex-direction: column-reverse; }
+  .form-actions .btn { width: 100%; }
+
+  table { font-size: 12px; }
+  th, td { padding: 8px 8px; }
+}
+
+@media (max-width: 420px) {
+  .summary-cards { grid-template-columns: 1fr; }
+}
